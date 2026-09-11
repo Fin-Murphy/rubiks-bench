@@ -78,6 +78,7 @@ game in an interactive Claude Code session.
    absolute, because claude runs from another directory. `$PWD` fills them in:
 
         mkdir -p ~/cube-play
+        cp prompts/solver_system.txt ~/cube-play/
         cat > ~/cube-play/cube.mcp.json <<EOF
         {"mcpServers": {"cube": {
           "type": "stdio",
@@ -92,14 +93,16 @@ game in an interactive Claude Code session.
         }}}
         EOF
 
+   It copies the solver prompt into the play folder too, so step 2 needs
+   nothing from the repo.
+
 2. Start claude with only the two cube tools. Run it from that empty folder
    rather than the repo, so the solver has nothing else to look at:
 
-        PROMPT="$(cat prompts/solver_system.txt)"
         cd ~/cube-play
         claude --mcp-config cube.mcp.json --strict-mcp-config --tools "" \
           --allowedTools "mcp__cube__get_state,mcp__cube__make_move" \
-          --append-system-prompt "$PROMPT"
+          --append-system-prompt "$(cat solver_system.txt)"
 
    Add `--model <name>` or `--effort <level>` to try other models and effort
    levels.
