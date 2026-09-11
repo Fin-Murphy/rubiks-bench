@@ -1,18 +1,16 @@
-# Rubik's cube LLM solver
+<img width="526" height="350" alt="images" src="https://github.com/user-attachments/assets/c2ba0683-f536-47b4-9c13-19faecc203af" />
+
+# RUBIKS BENCH
+
+I've always loved Rubik's cubes. They are a fun fidget to play with thinking, and are always satisfying to solve no matter how many times you do it. I was playing with one the other day and a thought came to me - can LLMs with all their abilities solve a text-based representation of a rubiks cube? 
+
+So here is the answer to that question: a text-based rubik's cube script and a harness with which to test agents against it. 
+
 
 A 3x3 Rubik's cube simulator with a text interface, plus a harness in which an
 LLM (headless Claude Code) tries to solve a scrambled cube one move at a time
 through an MCP server. Design: `docs/DESIGN.md`. Background: `docs/RESEARCH.md`.
 
-| File | What it is |
-|---|---|
-| `cube.py` | Engine, stdlib only: 54-facelet state (Kociemba order), full move notation, scrambles, the text net |
-| `game.py` | One budgeted game: rules, tool result text, JSONL log |
-| `mcp_server.py` | MCP stdio server `cube` with the tools `get_state` and `make_move` |
-| `cli.py` | Interactive REPL for humans |
-| `run_eval.py` | Runs `claude -p` games over a difficulty ladder and summarizes them |
-| `prompts/solver_system.txt` | The solver system prompt (DESIGN.md §4, verbatim) |
-| `tests/` | pytest suite |
 
 ## Setup
 
@@ -243,3 +241,13 @@ from the repo root:
 `moves_used`, `invalid_move_count` and `solved_sticker_fraction`. Use one log
 file per game, and the ladder's seeds and budgets, to keep results comparable
 with runner sweeps.
+
+| File | What it is |
+|---|---|
+| `cube.py` | Engine, stdlib only: 54-facelet state (Kociemba order), full move notation, scrambles, the text net |
+| `game.py` | One budgeted game: rules, tool result text, JSONL log |
+| `mcp_server.py` | MCP stdio server `cube` with the tools `get_state` and `make_move` |
+| `cli.py` | Interactive REPL for humans |
+| `run_eval.py` | Runs `claude -p` games over a difficulty ladder and summarizes them |
+| `prompts/solver_system.txt` | The solver system prompt (DESIGN.md §4, verbatim) |
+| `tests/` | pytest suite |
