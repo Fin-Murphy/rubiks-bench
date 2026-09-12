@@ -2,14 +2,13 @@
 
 # RUBIKS BENCH
 
-I've always loved Rubik's cubes. They are a fun fidget to play with thinking, and are always satisfying to solve no matter how many times you do it. I was playing with one the other day and a thought came to me - can LLMs with all their abilities solve a text-based representation of a rubiks cube? 
+I've always loved Rubik's cubes. They are a fun fidget and are always satisfying to solve no matter how many times you do it. I was playing with one the other day and it occurred to me that if I presented a model with a text-based Rubik's cube it might actually be able to solve it. 
 
-Here is the answer to that question: a text-based rubik's cube script and a harness with which to test agents against it. 
+Here is the solution: a text-based rubik's cube script and a harness with which to test agents against it. 
 
-For reference, an average human (me) can solve a 3x3 in about a minute.
+For reference, an average human (me) with prior experience can solve a 3x3 in about a minute without much effort. 
 
 Here is the code itself for now, my evaluation of all Anthropic's models is still ongoing. Play with it for yourself!
-
 
 A 3x3 Rubik's cube simulator with a text interface, plus a harness in which an
 LLM (headless Claude Code) tries to solve a scrambled cube one move at a time
