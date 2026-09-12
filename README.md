@@ -10,9 +10,10 @@ For reference, an average human (me) with prior experience can solve a 3x3 in ab
 
 Here is the code itself for now, my evaluation of all Anthropic's models is still ongoing. Play with it for yourself!
 
-A 3x3 Rubik's cube simulator with a text interface, plus a harness in which an
-LLM (headless Claude Code) tries to solve a scrambled cube one move at a time
-through an MCP server. Design: `docs/DESIGN.md`. Background: `docs/RESEARCH.md`.
+Contents:
+- 3x3 Rubik's cube simulator with a text interface
+- LLM harness (Claude Code) tries to solve a scrambled cube one move at a time via MCP server.
+- Design: `docs/DESIGN.md`. Background: `docs/RESEARCH.md`.
 
 
 ## Setup
